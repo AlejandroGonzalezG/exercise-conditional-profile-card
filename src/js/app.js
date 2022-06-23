@@ -1,3 +1,4 @@
+import { right } from "@popperjs/core";
 import "../style/index.css";
 
 /**
@@ -29,18 +30,88 @@ function render(variables = {}) {
   let cover = `<div class="cover"><img src="${variables.background}" /></div>`;
   if (variables.includeCover == false) cover = "<div class='cover'></div>";
 
+  let name = "Lucy";
+  if (variables.name !== null) {
+    name = variables.name;
+  }
+  let lastname = "Boillet";
+  if (variables.lastname !== null) {
+    lastname = variables.lastname;
+  }
+  let role = "Web Developer";
+  if (variables.role !== null) {
+    if (variables.role == "Web Developer") {
+      role = "Web Developer";
+    }
+    if (variables.role == "Floor Planner") {
+      role = "Floor Planner";
+    }
+    if (variables.role == "Technical Writter") {
+      role = "Technical Writter";
+    }
+  }
+  let city = "Miami";
+  if (variables.city !== null) {
+    if (variables.city == "Miami") {
+      city = "Miami";
+    }
+    if (variables.city == "Munich") {
+      city = "Munich";
+    }
+    if (variables.city == "Caracas") {
+      city = "Caracas";
+    }
+    if (variables.city == "Toronto") {
+      city = "Toronto";
+    }
+  }
+  let country = "USA";
+  if (variables.country !== null) {
+    if (variables.country == "USA") {
+      country = "USA";
+    }
+    if (variables.country == "Germany") {
+      country = "Germany";
+    }
+    if (variables.country == "Canada") {
+      country = "Canada";
+    }
+    if (variables.country == "Venezuela") {
+      country = "Venezuela";
+    }
+  }
+  let socialMediaPosition = "position-right";
+  if (variables.socialMediaPosition !== "position-right") {
+    socialMediaPosition = "position-left";
+  }
+  let twitter = "https://twitter.com/4geeksacademy";
+  if (variables.twitter !== null) {
+    twitter = "https://twitter.com/" + variables.twitter;
+  }
+  let github = "https://github.com/4geeksacademy";
+  if (variables.github !== null) {
+    github = "https://github.com/" + variables.github;
+  }
+  let linkedin = "https://linkedin.com/4geeksacademy";
+  if (variables.linkedin !== null) {
+    linkedin = "https://linkedin.com/" + variables.linkedin;
+  }
+  let instagram = "https://instagram.com/4geeksacademy";
+  if (variables.instagram !== null) {
+    instagram = "https://instagram.com/" + variables.instagram;
+  }
   // reset the website body with the new html output
   document.querySelector("#widget_content").innerHTML = `<div class="widget">
             ${cover}
           <img src="${variables.avatarURL}" class="photo" />
-          <h1>Lucy Boilett</h1>
-          <h2>Web Developer</h2>
-          <h3>Miami, USA</h3>
-          <ul class="position-right">
-            <li><a href="https://twitter.com/4geeksacademy"><i class="fab fa-twitter"></i></a></li>
-            <li><a href="https://github.com/4geeksacademy"><i class="fab fa-github"></i></a></li>
-            <li><a href="https://linkedin.com/4geeksacademy"><i class="fab fa-linkedin"></i></a></li>
-            <li><a href="https://instagram.com/4geeksacademy"><i class="fab fa-instagram"></i></a></li>
+          <h1>${name} ${lastname}</h1>
+          <h2>${role}</h2>
+          <h3>${city}, ${country}</h3>
+          <ul class="${socialMediaPosition}">
+            <li><a href="${twitter}"><i class="fab fa-twitter"></i></a></li>
+            <li><a href="${github}"><i class="fab fa-github"></i></a></li>
+            <li><a href="${linkedin}"><i class="fab fa-linkedin"></i></a></li>
+            <li><a href="${instagram}"><i class="fab fa-instagram"></i></a></li>
           </ul>
         </div>
     `;
